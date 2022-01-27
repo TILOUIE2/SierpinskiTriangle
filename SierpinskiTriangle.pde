@@ -1,19 +1,15 @@
-int background = 0;
 int length = 20;
+int bColor = 255;
 public void setup()
 {
   size(500, 500);
+  stroke(bColor);
+  background(bColor);
 }
 public void draw()
 {
-  if(background%2 == 0){
-    stroke(0);
-    background(0); 
-  }
-  else{
-  stroke(255);
-  background(255);
-  }
+  stroke(bColor);
+  background(bColor);
   sierpinski(0, 0, length);
   
 }
@@ -37,9 +33,17 @@ public void sierpinski(int x, int y, int len)
 }
 
 public void mousePressed(){
-  background++;
   if(length < 500){
   length = length + 20;
   }
   else length = 20;
+}
+
+public void keyPressed(){
+ if(key == '1'){
+   bColor = 255;
+ }
+ if(key == '2'){
+    bColor = 0;
+ }
 }
